@@ -1,12 +1,17 @@
-import { GithubIcon, LinkedinIcon, MailIcon, TwitterIcon } from 'lucide-react';
+import React from 'react';
 
+const Link = ({ href, children, className }) => (
+  <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+    {children}
+  </a>
+);
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen font-sans text-white bg-black relative">
+    <div className="min-h-screen font-sans text-white bg-black relative p-8">
       {/* Background dots */}
       <div className="absolute inset-0 z-0 opacity-10">
-        {[...Array(100)].map((_, i) => (
+        {[...Array(150)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-white rounded-full"
@@ -18,10 +23,26 @@ export default function Portfolio() {
         ))}
       </div>
       
-      <main className="container mx-auto px-6 py-20 relative z-10">
+      <main className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          <div className="bg-[rgb(26,26,26)] p-8 rounded-lg lg:col-span-1">
-            <h1 className="text-4xl font-bold mb-4">Khurram Bhutto</h1>
+          <div className="bg-[rgb(26,26,26)] p-8 rounded-lg lg:col-span-1 flex flex-col items-center text-center relative">
+            <div className="absolute top-4 left-4 flex items-center space-x-2 text-sm">
+              <Link href="https://x.com/khurram_bhutto" className="text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                <span>Twitter</span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="https://github.com/khurramriaz01" className="text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                <span>Github</span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="https://www.linkedin.com/in/khurram-bhutto" className="text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                <span>LinkedIn</span>
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </Link>
+            </div>
+            <h1 className="text-4xl font-bold mb-4 mt-8">Khurram Bhutto</h1>
             <p className="text-lg text-gray-400 mb-4">
               AI Enthusiast | Python Programmer | Bachelor's Student in Artificial Intelligence
             </p>
@@ -31,19 +52,8 @@ export default function Portfolio() {
             <p className="text-gray-500 mb-4">
               Currently exploring AI applications in real-world scenarios
             </p>
-            <div className="flex space-x-4">
-              <a href="https://twitter.com/khurrambhutto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <TwitterIcon className="w-6 h-6" />
-              </a>
-              <a href="https://github.com/khurrambhutto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <GithubIcon className="w-6 h-6" />
-              </a>
-              <a href="https://linkedin.com/in/khurram-bhutto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <LinkedinIcon className="w-6 h-6" />
-              </a>
-            </div>
           </div>
-          <div className="bg-[rgb(26,26,26)] p-8 rounded-lg lg:col-span-2">
+          <div className="bg-[rgb(26,26,26)] p-8 rounded-lg lg:col-span-2 relative">
             <h2 className="text-3xl font-bold mb-4">What have I been up to?</h2>
             <p className="text-gray-300 mb-4">
               As I approach the end of my third year in Artificial Intelligence at NUTECH, I've been deeply involved in cutting-edge AI projects. I'm currently working on developing a machine learning model that can predict and optimize energy consumption in smart homes, combining my passion for AI with practical, real-world applications.
@@ -54,7 +64,7 @@ export default function Portfolio() {
             <p className="text-gray-300">
               If you're interested in AI, machine learning, or just want to chat about the latest tech trends, feel free to reach out. I'm always excited to connect with fellow enthusiasts and professionals in the field!
             </p>
-            <p className="text-gray-500 mt-4 text-sm">Last updated: 15th June 2023</p>
+            <p className="text-gray-500 mt-4 text-sm absolute bottom-4 right-8">Last updated: 15th June 2023</p>
           </div>
         </div>
 
@@ -89,28 +99,7 @@ export default function Portfolio() {
             <p className="text-gray-500">Technologies: Python, NLTK, Scikit-learn, NLP</p>
           </div>
         </div>
-
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-          <div className="flex justify-center space-x-6">
-            <a href="mailto:khurram.bhutto@example.com" className="text-gray-400 hover:text-white transition-colors">
-              <MailIcon className="w-8 h-8" />
-            </a>
-            <a href="https://github.com/khurrambhutto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <GithubIcon className="w-8 h-8" />
-            </a>
-            <a href="https://linkedin.com/in/khurram-bhutto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <LinkedinIcon className="w-8 h-8" />
-            </a>
-          </div>
-        </div>
       </main>
-
-      <footer className="bg-[rgb(26,26,26)] py-6 mt-16 relative z-10">
-        <div className="container mx-auto px-6 text-center text-gray-500">
-          <p>© 2023 Khurram Bhutto. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }
